@@ -61,7 +61,7 @@ const Welcome = () => {
     { name: "Beauty products", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSHH-Fbq-q1S4XJ-xYKEmCr_BPJKJSj0s-gFw&s", description: "Skincare, makeup, and wellness." },
     { name: "Dry fruits", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSNA2LdUCP9dwGFKaca-DiB6jUr3rKD_NAesg&s", description: "Dry fruits, well and healthy." },
     { name: "Home Furnitures", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJqTqO7gxYZKAYygDCkt8xlHiHid83NHc7ZTvw2I_ELKO-6k4zS8caN4uW75yxRrifWSU&usqp=CAU", description: "Furnishings for every corner of your home." },
-    { name: "Kilos", img: "https://www.rmemart.com/s/62afda9f5dd6de16b52ff6be/663cb457fae819770603886e/combo-img-640x640.jpg", description: "Bulk deals on quality products." },
+    { name: "Kilos", img: "https://media.istockphoto.com/id/1941874849/photo/groceries-and-goods-falling-in-a-shopping-cart.jpg?s=612x612&w=0&k=20&c=cuKsrx8lLOdg38bD8_3IzeIICaaKGcXHkYgFoM-LlkI=", description: "Bulk deals on quality products." },
     { name: "Toys and More", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTne3pUwgHf1sq9jWIFAZ9_f8eAmmzYLwmlbA&s", description: "Fun toys and gifts for kids." }
   ];
 
@@ -69,7 +69,7 @@ const Welcome = () => {
     {
       name: "Wireless Headphones",
       price: "2,499",
-      img: "https://hifimart.com/wp-content/uploads/ath-m50xbt2_01.webp",
+      img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKWH53DFy3gIShqATCR8G3IN1SyPSfMwlqMQ&s",
       description: "High-quality wireless headphones with noise cancellation."
     },
     {
