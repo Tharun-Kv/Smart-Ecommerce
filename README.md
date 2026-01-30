@@ -1,5 +1,7 @@
 # 🛍️ E-Commerce Web Application
 
+> **⚠️ Demo/Student Project Notice**: This is a portfolio project created for educational and demonstration purposes only. This is not a commercial e-commerce platform and should not be used for real transactions or production environments.
+
 A modern, responsive e-commerce website built using **ReactJS**, **TailwindCSS**, and **Firebase**. This project provides a complete online shopping experience, including user authentication, product management, cart functionality, and an admin dashboard.
 
 ## 🔗 Live Demo
