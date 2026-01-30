@@ -3,6 +3,7 @@ import { Outlet } from "react-router-dom";
 import { SearchProvider } from "../pages/search";
 import Header from "../pages/Header";
 import Footer from "../pages/Footer";
+import ProductComparisonBot from "../components/ProductComparisonBot";
 
 const exampleCategories = [
   { name: "Mobiles", link: "/category/Mobiles" },
@@ -53,6 +54,9 @@ const Layout = () => {
           <Outlet />
           <Footer />
         </main>
+        
+        {/* Product Comparison Bot */}
+        <ProductComparisonBot />
       </div>
     </SearchProvider>
   );

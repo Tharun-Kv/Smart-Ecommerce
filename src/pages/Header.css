@@ -1,29 +1,56 @@
+:root {
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+  --radius-md: 4px;
+  --radius-lg: 8px;
+  --shadow-sm: 0 2px 4px rgba(0,0,0,0.1);
+  --shadow-md: 0 4px 8px rgba(0,0,0,0.1);
+  --shadow-lg: 0 8px 16px rgba(0,0,0,0.1);
+  --transition-fast: 0.1s;
+  --transition-normal: 0.3s;
+  --background: #ffffff;
+  --border: #e0e0e0;
+  --primary-color: #8a043b;
+  --primary-hover: #7a033a;
+  --secondary-color: #2874f0;
+  --text-primary: #333;
+}
+
 .header1 {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0px 24px;
-  background-color: #ffffff;
-  border-bottom: 1px solid #e0e0e0;
+  padding: var(--spacing-md) var(--spacing-xl);
+  background-color: var(--background);
+  border-bottom: 1px solid var(--border);
   position: sticky;
   top: 0;
   z-index: 1000;
+  box-shadow: var(--shadow-sm);
 }
 
 .logo1 {
   font-size: 24px;
-  font-weight: bold;
+  font-weight: 700;
   cursor: pointer;
-  padding: 0px 8px;
-  color: #8a043b; /* Flipkart blue */
+  padding: var(--spacing-sm) var(--spacing-sm);
+  color: var(--primary-color);
+  transition: color var(--transition-fast);
+}
+
+.logo1:hover {
+  color: var(--primary-hover);
 }
 
 .search-container1 {
   display: flex;
   align-items: center;
-  width: 50%; /* Similar width to Google search */
+  width: 50%;
   max-width: 600px;
-  margin: 0 20px;
+  margin: 0 var(--spacing-lg);
   position: relative;
 }
 
@@ -32,26 +59,28 @@
   display: flex;
   align-items: center;
   width: 100%;
-  height: 40px;
-  border-radius: 2px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  border: 1px solid #f1f1f1;
-  background: #fff;
-  transition: all 0.3s ease;
+  height: 44px;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--border);
+  background: var(--background);
+  transition: all var(--transition-normal);
 }
 
 .search-bar1:focus-within {
-  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-  border-color: #2874f0;
+  box-shadow: var(--shadow-lg);
+  border-color: var(--secondary-color);
+  transform: translateY(-1px);
 }
 
 .search-bar1 input {
   flex: 1;
-  padding: 10px 15px;
+  padding: var(--spacing-sm) var(--spacing-md);
   border: none;
   outline: none;
-  font-size: 14px;
+  font-size: 16px;
   background: transparent;
+  color: var(--text-primary);
 }
 
 .search-icon1 {
