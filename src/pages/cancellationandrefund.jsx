@@ -53,7 +53,7 @@ const Cancellationandrefund = () => {
     <div style={containerStyle}>
       <h1 style={headingStyle}>Cancellation & Refund</h1>
       <p style={paragraphStyle}>
-        Welcome to our e-commerce store! We are committed to delivering quality products at your doorstep with secure and fast delivery.
+        Welcome to Smart E-Commerce! We are committed to delivering quality products at your doorstep with secure and fast delivery.
         Our platform is built with customer satisfaction as the top priority. Whether you're shopping for electronics, fashion, or groceries, we aim to give you the best online shopping experience.
       </p>
 
