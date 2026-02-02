@@ -25,7 +25,7 @@ const About = () => {
   return (
     <div className="about-container">
       <div className="about-header animate-on-scroll">
-        <h1>About Our E-commerce Store</h1>
+        <h1>About Smart E-Commerce</h1>
         <p>Your One-Stop Shop for Everything You Need</p>
       </div>
       

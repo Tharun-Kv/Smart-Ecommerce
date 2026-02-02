@@ -163,11 +163,11 @@ const OrderInvoice = ({ order }) => {
         {/* Header with company info and invoice details */}
         <View style={styles.header}>
           <View style={styles.companyInfo}>
-            <Text style={styles.companyName}>Techverve Store</Text>
+            <Text style={styles.companyName}>Smart E-Commerce</Text>
             <Text>jp nagara</Text>
             <Text>Bengaluru,karnataka State 123456</Text>
             <Text>Phone:8277487233</Text>
-            <Text>Email: contact@techvervstore.com</Text>
+            <Text>Email: contact@smartecommerce.com</Text>
             <Text>GSTIN: 22AAAAA0000A1Z5</Text>
           </View>
           

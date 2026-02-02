@@ -7,7 +7,7 @@ export const dummyCategoryProducts = {
       name: "iPhone 14", 
       brand: "Apple", 
       price: 79999, 
-      img: "https://m.media-amazon.com/images/I/61cwywLZR-L._SX679_.jpg",
+      img: "https://store.storeimages.c-apple.com/4982/as-images.apple.com/is/iphone-14-finish-select-202209-6-1inch-blue?wid=5120&hei=2880&fmt=webp&qlt=70&.v=1663092988666",
       description: "The iPhone 14 features a stunning Super Retina XDR display, advanced dual-camera system, A15 Bionic chip, and improved battery life. It delivers powerful performance and seamless iOS experience.",
       features: ["A15 Bionic chip", "Super Retina XDR display", "Dual-camera system", "iOS ecosystem"],
       category: "Mobiles"
@@ -16,7 +16,7 @@ export const dummyCategoryProducts = {
       name: "Samsung Galaxy S22", 
       brand: "Samsung", 
       price: 69999, 
-      img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS5x7kbFyH-kUx4HnmNQ91t9zckl6w41zUHrQ&s",
+      img: "https://images.samsung.com/is/image/samsung/p6pim/in/2202/gallery/in-galaxy-s22-s901-sm-s906elgeins-530940617?$650_519_PNG$",
       description: "Samsung Galaxy S22 offers a brilliant AMOLED display, pro-grade camera system, and powerful Snapdragon processor. With a sleek design and long-lasting battery, it excels in performance and versatility.",
       features: ["AMOLED display", "Pro-grade camera", "Snapdragon processor", "Android ecosystem"],
       category: "Mobiles"
@@ -25,7 +25,7 @@ export const dummyCategoryProducts = {
       name: "Nothing Phone 1", 
       brand: "Nothing", 
       price: 39999, 
-      img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSBSOmWUmFSNQS4-r0HetgmU8uZRJ608k3Jqw&s",
+      img: "https://cdn.shopify.com/s/files/1/0549/7667/6306/products/Nothing-Phone-1-Black-1_1200x1200.jpg?v=1656542073",
       description: "Nothing Phone 1 brings a unique transparent design with Glyph interface, smooth OLED display, dual camera, and powerful performance. It's a bold, innovative smartphone redefining Android aesthetics.",
       features: ["Transparent design", "Glyph interface", "OLED display", "Unique aesthetics"],
       category: "Mobiles"
@@ -34,7 +34,7 @@ export const dummyCategoryProducts = {
       name: "iPhone 13", 
       brand: "Apple", 
       price: 69999, 
-      img: "https://m.media-amazon.com/images/I/61bFp4E9ZOL._SX679_.jpg",
+      img: "https://store.storeimages.c-apple.com/4982/as-images.apple.com/is/iphone-13-finish-select-202203-6-1inch-pink?wid=5120&hei=2880&fmt=webp&qlt=70&.v=1646092597126",
       description: "iPhone 13 features A15 Bionic chip, advanced dual-camera system, and Ceramic Shield front. It offers impressive battery life and 5G capability in a compact design.",
       features: ["A15 Bionic chip", "Ceramic Shield", "Dual-camera system", "5G capable"],
       category: "Mobiles"
@@ -43,7 +43,7 @@ export const dummyCategoryProducts = {
       name: "Samsung Galaxy S21", 
       brand: "Samsung", 
       price: 54999, 
-      img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6vF8I7XZ9Q8Y7W6V5U4T3S2R1P9O8N7M6K&s",
+      img: "https://images.samsung.com/is/image/samsung/p6pim/in/galaxy-s21-s901/gallery/in-galaxy-s21-s901-sm-g991bzgdins-531164407?$650_519_PNG$",
       description: "Samsung Galaxy S21 delivers professional-grade photography with its triple camera system, Dynamic AMOLED 2X display, and powerful Exynos processor for seamless performance.",
       features: ["Triple camera", "Dynamic AMOLED 2X", "Exynos processor", "Professional photography"],
       category: "Mobiles"
@@ -52,7 +52,7 @@ export const dummyCategoryProducts = {
       name: "OnePlus 9 Pro", 
       brand: "OnePlus", 
       price: 64999, 
-      img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8W7X6V5U4T3S2R1P9O8N7M6K5I4J3H2G1F&s",
+      img: "https://image01.oneplus.net/oneplus_9_pro/spec/OnePlus_9_Pro_Pine_Green.png",
       description: "OnePlus 9 Pro features Hasselblad camera system, Fluid AMOLED display, and Snapdragon 888 processor. It offers ultra-fast charging and premium build quality.",
       features: ["Hasselblad camera", "Fluid AMOLED", "Snapdragon 888", "Ultra-fast charging"],
       category: "Mobiles"
@@ -61,7 +61,7 @@ export const dummyCategoryProducts = {
       name: "Xiaomi Mi 11", 
       brand: "Xiaomi", 
       price: 44999, 
-      img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcP7O6N5M4K3I2J1H0G9F8E7D6C5B4A3Z2Y1X&s",
+      img: "https://i01.appmifile.com/v1/MI_18455B3E4DA706226CF7535A58E875F0/pms_1667323999.96581213.png",
       description: "Xiaomi Mi 11 boasts a 108MP camera, AMOLED display, and Snapdragon 888 processor. It offers flagship features at a competitive price point.",
       features: ["108MP camera", "AMOLED display", "Snapdragon 888", "Flagship value"],
       category: "Mobiles"
@@ -70,7 +70,7 @@ export const dummyCategoryProducts = {
       name: "Google Pixel 6", 
       brand: "Google", 
       price: 59999, 
-      img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcL8M9N7O6K5I4J3H2G1F0E9D8C7B6A5Z4Y3X&s",
+      img: "https://store.google.com/product/pixel_6/images/koxavi/20221025_P6_4K_Devices_Front-Back_Dynamic_Hero_3D.png?width=1080",
       description: "Google Pixel 6 features Tensor chip, advanced AI photography, and clean Android experience. It offers exceptional camera performance and timely updates.",
       features: ["Tensor chip", "AI photography", "Clean Android", "Timely updates"],
       category: "Mobiles"
@@ -79,7 +79,7 @@ export const dummyCategoryProducts = {
       name: "Oppo Find X3 Pro", 
       brand: "Oppo", 
       price: 62999, 
-      img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcK9L0M7N6K5I4J3H2G1F2E1D0C9B8A7Z6Y5X&s",
+      img: "https://images.oppo.com/content/dam/oppo/en-us/find-x3-pro/find-x3-pro-black.png",
       description: "Oppo Find X3 Pro features 10-bit color display, advanced microscopy camera, and Snapdragon 888 processor. It excels in color accuracy and photography.",
       features: ["10-bit display", "Microscopy camera", "Snapdragon 888", "Color accuracy"],
       category: "Mobiles"
@@ -88,7 +88,7 @@ export const dummyCategoryProducts = {
       name: "Vivo X60 Pro", 
       brand: "Vivo", 
       price: 49999, 
-      img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcJ8I9K0L7N6K5I4J3H2G1F3E2D1C0B9A8Z7Y&s",
+      img: "https://www.vivo.com/in/images/x60-pro/kv/x60-pro-2.png",
       description: "Vivo X60 Pro features gimbal stabilization, Zeiss optics, and professional photography features. It offers exceptional video stabilization and camera performance.",
       features: ["Gimbal stabilization", "Zeiss optics", "Professional video", "Advanced photography"],
       category: "Mobiles"
@@ -97,7 +97,7 @@ export const dummyCategoryProducts = {
       name: "Realme GT 5G", 
       brand: "Realme", 
       price: 37999, 
-      img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcH7J8I9K0L7N6K5I4J3H2G1F4E3D2C1B0A9Z8&s",
+      img: "https://image01.realme.net/general/20210525/1621918429442.jpg",
       description: "Realme GT 5G features Snapdragon 888 processor, 120Hz AMOLED display, and 65W fast charging. It offers flagship performance at an affordable price.",
       features: ["Snapdragon 888", "120Hz display", "65W charging", "Affordable flagship"],
       category: "Mobiles"
@@ -106,7 +106,7 @@ export const dummyCategoryProducts = {
       name: "Motorola Edge 20", 
       brand: "Motorola", 
       price: 42999, 
-      img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcI6K7J8I9K0L7N6K5I4J3H2G1F5E4D3C2B1A0Z9&s",
+      img: "https://motorola-global-portal-prod.cdn.motorola.com/content/dam/motorola/portal/en_in/products/edge-20/edge-20-hero.png",
       description: "Motorola Edge 20 features 144Hz OLED display, 108MP camera, and near-stock Android experience. It offers smooth display and clean software.",
       features: ["144Hz display", "108MP camera", "Stock Android", "Smooth performance"],
       category: "Mobiles"
@@ -115,7 +115,7 @@ export const dummyCategoryProducts = {
       name: "ASUS ROG Phone 5", 
       brand: "ASUS", 
       price: 57999, 
-      img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcJ5K6L7J8I9K0L7N6K5I4J3H2G1F6E5D4C3B2A1Z&s",
+      img: "https://dlcdnweb.asus.com/rog/media/1597536374244.png",
       description: "ASUS ROG Phone 5 is designed for gaming with Snapdragon 888 processor, 144Hz display, and advanced cooling system. It offers ultimate gaming performance.",
       features: ["Gaming focused", "Advanced cooling", "144Hz gaming", "Snapdragon 888"],
       category: "Mobiles"
@@ -126,7 +126,7 @@ export const dummyCategoryProducts = {
       name: "Sony LED TV", 
       brand: "Sony", 
       price: 49999, 
-      img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRCfzNlYZR7_8VIdNItHJsChB2Lj6y6bdg3PQ&s", 
+      img: "https://images.sony.com/is/image/samsung/p6pim/in/55-inch-x80k-led-4k-uhd-smart-google-tv-kd55x80j/3314476323?$650_519_PNG$", 
       description: "Sony LED TV delivers ultra-clear 4K visuals, immersive surround sound, and Android TV features. Enjoy cinematic experiences at home with vibrant colors and fast refresh rates for gaming.",
       features: ["4K display", "Android TV", "Surround sound", "Gaming ready"],
       category: "Electronics"
@@ -135,7 +135,7 @@ export const dummyCategoryProducts = {
       name: "JBL Bluetooth Speaker", 
       brand: "JBL", 
       price: 1499, 
-      img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_CSPL_Umu_SLPMTG6buTNCpeSdfQn6PMNSA&s",
+      img: "https://harmanaudio.com/content/dam/harman/jbl/wireless-speakers/flip-6/jbl-flip-6-black-product.png",
       description: "This JBL Bluetooth speaker is compact, portable, and powerful. With long battery life, waterproof design, and deep bass output, it's perfect for travel, parties, and everyday use.",
       features: ["Portable", "Waterproof", "Long battery", "Deep bass"],
       category: "Electronics"
@@ -144,7 +144,7 @@ export const dummyCategoryProducts = {
       name: "Philips LED Bulb", 
       brand: "Philips", 
       price: 1899, 
-      img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSeukqCzEK0uMFX7l3soOP8nGl6Z94bbHcHLg&s", 
+      img: "https://images.philips.com/is/image/PhilipsConsumer/LED-bulb-9W-E27-3-pcs-929001169101-global-001?$jpglarge$&wid=960", 
       description: "Philips LED bulb offers energy efficiency, long lifespan, and bright white light. It's ideal for home lighting, reducing electricity bills while enhancing visibility and comfort in all spaces.",
       features: ["Energy efficient", "Long lifespan", "Bright white light", "Cost effective"],
       category: "Electronics"
@@ -153,7 +153,7 @@ export const dummyCategoryProducts = {
       name: "Samsung OLED TV", 
       brand: "Samsung", 
       price: 89999, 
-      img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7N8O6K5I4J3H2G1F0E9D8C7B6A5Z4Y3X2W&s",
+      img: "https://images.samsung.com/is/image/samsung/p6pim/in/s95-oled-4k-smart-tv-qn55s95cafxza-530828788?$650_519_PNG$",
       description: "Samsung OLED TV features perfect black levels, vibrant colors, and smart TV capabilities. With ultra-thin design and powerful processors, it delivers premium viewing experience.",
       features: ["OLED display", "Perfect blacks", "Smart TV", "Ultra-thin design"],
       category: "Electronics"
@@ -162,7 +162,7 @@ export const dummyCategoryProducts = {
       name: "LG Soundbar", 
       brand: "LG", 
       price: 12999, 
-      img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS8O7N6K5I4J3H2G1F0E9D8C7B6A5Z4Y3X3V&s",
+      img: "https://www.lg.com/in/images/sound-bars/md07504546/gallery/SN4Y-2-1ch-DTS-Virtual-X-3D-Surround-Bluetooth-Soundbar-with-Wireless-Subwoofer-DN.jpg",
       description: "LG Soundbar delivers immersive audio with Dolby Atmos support, wireless subwoofer, and adaptive sound. It transforms your TV viewing experience with theater-like sound quality.",
       features: ["Dolby Atmos", "Wireless subwoofer", "Adaptive sound", "Theater quality"],
       category: "Electronics"
@@ -171,7 +171,7 @@ export const dummyCategoryProducts = {
       name: "Sony Headphones", 
       brand: "Sony", 
       price: 8999, 
-      img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT9N8O6K5I4J3H2G1F0E9D8C7B6A5Z4Y3X4U&s",
+      img: "https://sony.scene7.com/is/image/SonyElectronics/wh-1000xm5-hero-1?$600$&fmt=png-alpha",
       description: "Sony Headphones feature industry-leading noise cancellation, exceptional sound quality, and long battery life. Perfect for music lovers and frequent travelers.",
       features: ["Noise cancellation", "Premium sound", "Long battery", "Comfortable fit"],
       category: "Electronics"
@@ -281,7 +281,7 @@ export const dummyCategoryProducts = {
       name: "Adidas Jacket", 
       brand: "Adidas", 
       price: 2999, 
-      img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcV8L9M0N6O5I4J3H2G1F0E9D8C7B6A5Z4Y3X&s",
+      img: "https://www.vivo.com/in/images/x60-pro/kv/x60-pro-2.png",
       description: "Adidas Jacket offers water-resistant fabric, breathable design, and iconic three-stripes styling. Ideal for outdoor activities and light weather protection.",
       features: ["Water resistant", "Breathable design", "Iconic styling", "Outdoor ready"],
       category: "Fashion"
@@ -400,7 +400,7 @@ export const dummyCategoryProducts = {
       name: "Air Purifier", 
       brand: "Philips", 
       price: 12999, 
-      img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcV8L9M0N6O5I4J3H2G1F0E9D8C7B6A5Z4Y3B3&s",
+      img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcV8L9M0N7N6O5I4J3H2G1F0E9D8C7B6A5Z4Y3B3&s",
       description: "Philips Air Purifier removes 99.97% of pollutants, features smart sensors, and operates quietly. Ideal for allergy sufferers and maintaining clean indoor air quality.",
       features: ["HEPA filter", "Smart sensors", "Quiet operation", "Allergy relief"],
       category: "Home Appliances"
@@ -977,7 +977,7 @@ export const dummyCategoryProducts = {
       name: "Moong Dal (5kg)", 
       price: 549,
       brand: "Safal", 
-      img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcV8L9M0N7N6O5I4J3H2G1F0E9D8C7B6A5Z4Y3W3&s",
+      img: "https://image01.realme.net/general/20210525/1621918429442.jpg",
       description: "Safal Moong Dal is high-quality green gram lentils, easy to digest and rich in protein. Perfect for making dal, soups, and traditional Indian dishes.",
       features: ["Easy to digest", "High protein", "Quality lentils", "Versatile"],
       category: "Kilos"
