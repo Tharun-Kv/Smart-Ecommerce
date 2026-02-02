@@ -12,11 +12,39 @@
   padding: 10px 20px;
 }
 
+@media (max-width: 768px) {
+  .header {
+    padding: 8px 16px;
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .header {
+    padding: 6px 12px;
+  }
+}
+
 .logo {
   font-size: 1.8rem;
   font-weight: bold;
   color: rgb(170, 98, 113);
   margin-right: 20px;
+  white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+  .logo {
+    font-size: 1.5rem;
+    margin-right: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo {
+    font-size: 1.3rem;
+  }
 }
 
 .search-bar {
@@ -29,6 +57,13 @@
   border-radius: 20px;
 }
 
+@media (max-width: 768px) {
+  .search-bar {
+    max-width: 100%;
+    margin: 0;
+  }
+}
+
 .search-bar input {
   width: 100%;
   padding: 10px 15px 10px 45px;
@@ -38,6 +73,13 @@
   outline: none;
 }
 
+@media (max-width: 480px) {
+  .search-bar input {
+    font-size: 14px;
+    padding: 8px 12px 8px 35px;
+  }
+}
+
 .search-icon-logo {
   position: absolute;
   width: 20px;
@@ -45,6 +87,14 @@
   top: 50%;
   left: 15px;
   transform: translateY(-50%);
+}
+
+@media (max-width: 480px) {
+  .search-icon-logo {
+    width: 16px;
+    height: 16px;
+    left: 12px;
+  }
 }
 
 .clear-search {
@@ -94,20 +144,40 @@
   right: -4px;
 }
 
+/* Welcome Container */
+.welcome-container {
+  padding-top: 0;
+  margin-top: -1px; /* Compensate for header border */
+}
+
 /* Hero Banner */
 .hero-banner {
   position: relative;
   width: 100%;
-  height: 46vh;
+  height: 300px;
   overflow: hidden;
+  background: #f8f9fa;
+}
+
+@media (max-width: 768px) {
+  .hero-banner {
+    height: 250px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-banner {
+    height: 200px;
+  }
 }
 
 .hero-image {
   width: 100%;
-  height: 210px;
+  height: 100%;
+  object-fit: cover;
   position: absolute;
-  padding: 0px 10px;
-  border-radius: 20px;
+  top: 0;
+  left: 0;
   opacity: 0;
   transition: opacity 2s ease-in-out;
 }
@@ -124,9 +194,35 @@
   text-align: center;
 }
 
+@media (max-width: 768px) {
+  .categories {
+    padding: 30px 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .categories {
+    padding: 20px 12px;
+  }
+}
+
 .categories h2 {
   font-size: 28px;
   margin-bottom: 30px;
+}
+
+@media (max-width: 768px) {
+  .categories h2 {
+    font-size: 24px;
+    margin-bottom: 25px;
+  }
+}
+
+@media (max-width: 480px) {
+  .categories h2 {
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
 }
 
 .category-grid {
@@ -135,6 +231,27 @@
   gap: 30px;
   justify-items: center;
   align-items: center;
+}
+
+@media (max-width: 1024px) {
+  .category-grid {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 25px;
+  }
+}
+
+@media (max-width: 768px) {
+  .category-grid {
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .category-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+  }
 }
 
 .category-item {
@@ -146,6 +263,27 @@
   max-width: 180px;
   text-align: center;
   cursor: pointer;
+}
+
+@media (max-width: 1024px) {
+  .category-item {
+    padding: 12px;
+    max-width: 160px;
+  }
+}
+
+@media (max-width: 768px) {
+  .category-item {
+    padding: 10px;
+    max-width: 140px;
+  }
+}
+
+@media (max-width: 480px) {
+  .category-item {
+    padding: 8px;
+    max-width: 100%;
+  }
 }
 
 .category-item:hover {
@@ -227,6 +365,19 @@
   align-items: center;
   justify-content: center;
   z-index: 1000;
+  padding: 20px;
+}
+
+@media (max-width: 768px) {
+  .modal-overlay1 {
+    padding: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .modal-overlay1 {
+    padding: 12px;
+  }
 }
 
 .modal-content1 {
@@ -240,11 +391,41 @@
   position: relative;
 }
 
+@media (max-width: 768px) {
+  .modal-content1 {
+    flex-direction: column;
+    padding: 16px;
+    width: 95%;
+  }
+}
+
+@media (max-width: 480px) {
+  .modal-content1 {
+    padding: 12px;
+    width: 98%;
+  }
+}
+
 .modal-content1 img {
   width: 300px;
   height: auto;
   border-radius: 10px;
   object-fit: cover;
+}
+
+@media (max-width: 768px) {
+  .modal-content1 img {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .modal-content1 img {
+    width: 100%;
+    height: 200px;
+  }
 }
 
 .info {
@@ -255,13 +436,46 @@
   justify-content: center;
 }
 
+@media (max-width: 768px) {
+  .info {
+    margin-left: 0;
+    margin-top: 16px;
+  }
+}
+
 .info h2 {
   font-size: 24px;
+}
+
+@media (max-width: 768px) {
+  .info h2 {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .info h2 {
+    font-size: 18px;
+  }
 }
 
 .info p {
   margin: 10px 0;
   font-size: 16px;
+}
+
+@media (max-width: 768px) {
+  .info p {
+    font-size: 14px;
+    margin: 8px 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .info p {
+    font-size: 13px;
+    margin: 6px 0;
+  }
 }
 
 .modal-buttons1 {
@@ -271,12 +485,34 @@
   justify-content: center;
 }
 
+@media (max-width: 768px) {
+  .modal-buttons1 {
+    margin-top: 16px;
+    gap: 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .modal-buttons1 {
+    margin-top: 12px;
+    flex-direction: column;
+    gap: 6px;
+  }
+}
+
 .modal-buttons1 .btn {
   padding: 10px 16px;
   font-weight: bold;
   border: none;
   border-radius: 5px;
   cursor: pointer;
+}
+
+@media (max-width: 480px) {
+  .modal-buttons1 .btn {
+    padding: 8px 12px;
+    font-size: 14px;
+  }
 }
 
 .buy-btn {
@@ -298,6 +534,14 @@
   font-weight: bold;
 }
 
+@media (max-width: 480px) {
+  .close-button1 {
+    font-size: 20px;
+    top: 8px;
+    right: 12px;
+  }
+}
+
 /* Footer */
 .footer {
   background-color: #2874f0;
@@ -306,8 +550,32 @@
   padding: 20px;
 }
 
+@media (max-width: 768px) {
+  .footer {
+    padding: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer {
+    padding: 12px;
+  }
+}
+
 .footer p {
   font-size: 14px;
+}
+
+@media (max-width: 768px) {
+  .footer p {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer p {
+    font-size: 12px;
+  }
 }
 
 .footer-container {
@@ -449,11 +717,12 @@
   }
 
   .hero-banner {
-    height: auto;
+    height: 200px;
   }
 
   .hero-image {
-    height: 180px;
+    height: 100%;
+    object-fit: cover;
   }
 
   .category-grid {
