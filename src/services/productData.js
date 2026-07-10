@@ -1,6 +1,16 @@
 // Product data service - exports existing website products for comparison
 // This ensures the comparison bot works only with products available on the website
 
+// Self-contained SVG product tile (data URI) — always renders, no external
+// image host required. Used for catalog entries without brand photography.
+const productTileImg = (label, bg = "#2563eb") => {
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="400" height="300"><rect width="400" height="300" rx="16" fill="${bg}"/><rect x="12" y="12" width="376" height="276" rx="12" fill="none" stroke="rgba(255,255,255,0.35)" stroke-width="2"/><text x="200" y="150" font-family="Arial, sans-serif" font-size="26" font-weight="bold" fill="#ffffff" text-anchor="middle" dominant-baseline="middle">${label}</text><text x="200" y="190" font-family="Arial, sans-serif" font-size="14" fill="rgba(255,255,255,0.75)" text-anchor="middle">Smart E-Commerce</text></svg>`;
+  return `data:image/svg+xml;utf8,${encodeURIComponent(svg)}`;
+};
+
+const groceryImg = (label) => productTileImg(label, "#16a34a");
+const travelImg = (label) => productTileImg(label, "#2563eb");
+
 export const dummyCategoryProducts = {
   Mobiles: [
     { 
@@ -1125,6 +1135,168 @@ export const dummyCategoryProducts = {
       description: "Sri Sri Tattva Sattu is roasted gram flour, perfect for making traditional dishes and healthy meals. Rich in protein and essential nutrients.",
       features: ["High protein", "Essential nutrients", "Traditional dishes", "Healthy meals"],
       category: "Kilos"
+    },
+    {
+      name: "Fresh Paneer (1kg)",
+      price: 399,
+      brand: "Amul",
+      img: groceryImg("Fresh Paneer"),
+      description: "Amul Fresh Paneer is soft, fresh cottage cheese made from pure milk. Perfect for paneer butter masala, palak paneer, tikka, and other Indian dishes.",
+      features: ["Made from pure milk", "Soft texture", "High protein", "Ready to cook"],
+      category: "Kilos"
+    },
+    {
+      name: "Toned Milk (1L)",
+      price: 68,
+      brand: "Amul",
+      img: groceryImg("Toned Milk"),
+      description: "Amul Taaza Toned Milk is pasteurised fresh milk — the essential base for making paneer, curd, sweets, tea, and everyday cooking.",
+      features: ["Pasteurised", "Fresh daily", "Base for paneer and curd", "Rich in calcium"],
+      category: "Kilos"
+    },
+    {
+      name: "Fresh Curd (1kg)",
+      price: 75,
+      brand: "Nandini",
+      img: groceryImg("Fresh Curd"),
+      description: "Nandini Fresh Curd is thick, creamy dahi. Used to curdle milk when making paneer at home, for marinades, raita, and kadhi.",
+      features: ["Thick and creamy", "Curdling agent for paneer", "Probiotic", "Marinades and raita"],
+      category: "Kilos"
+    },
+    {
+      name: "Fresh Lemons (500g)",
+      price: 45,
+      brand: "Farm Fresh",
+      img: groceryImg("Fresh Lemons"),
+      description: "Juicy fresh lemons — squeeze into hot milk to split it when making paneer at home, or use for salads, drinks, and seasoning.",
+      features: ["Curdling agent for paneer", "Rich in vitamin C", "Fresh and juicy", "Multi-purpose"],
+      category: "Kilos"
+    },
+    {
+      name: "Iodised Salt (1kg)",
+      price: 28,
+      brand: "Tata",
+      img: groceryImg("Iodised Salt"),
+      description: "Tata Iodised Salt — the everyday essential for all cooking, from paneer dishes to baking and seasoning.",
+      features: ["Iodised", "Everyday essential", "Free-flowing", "Trusted brand"],
+      category: "Kilos"
+    },
+    {
+      name: "Butter (500g)",
+      price: 275,
+      brand: "Amul",
+      img: groceryImg("Butter"),
+      description: "Amul Butter — creamy and delicious, essential for paneer butter masala, parathas, baking, and breakfast toast.",
+      features: ["Creamy texture", "For butter masala", "Baking essential", "Made from fresh cream"],
+      category: "Kilos"
+    },
+    {
+      name: "Pure Ghee (1L)",
+      price: 649,
+      brand: "Amul",
+      img: groceryImg("Pure Ghee"),
+      description: "Amul Pure Ghee made from fresh cream. Adds rich aroma to curries, dals, sweets, and traditional cooking.",
+      features: ["Pure cow ghee", "Rich aroma", "Traditional cooking", "High smoke point"],
+      category: "Kilos"
+    },
+    {
+      name: "Sunflower Oil (1L)",
+      price: 145,
+      brand: "Fortune",
+      img: groceryImg("Sunflower Oil"),
+      description: "Fortune Sunflower Oil is a light, healthy refined oil for everyday frying, sautéing, and all Indian cooking.",
+      features: ["Light and healthy", "Refined", "Everyday cooking", "Vitamin E enriched"],
+      category: "Kilos"
+    },
+    {
+      name: "Garam Masala (100g)",
+      price: 95,
+      brand: "MDH",
+      img: groceryImg("Garam Masala"),
+      description: "MDH Garam Masala is an aromatic blend of ground spices — the finishing touch for paneer butter masala, curries, and gravies.",
+      features: ["Aromatic spice blend", "For curries and gravies", "Authentic taste", "Premium spices"],
+      category: "Kilos"
+    },
+    {
+      name: "Turmeric Powder (200g)",
+      price: 68,
+      brand: "Everest",
+      img: groceryImg("Turmeric Powder"),
+      description: "Everest Turmeric Powder adds colour, flavour, and health benefits to dals, curries, and everyday Indian cooking.",
+      features: ["Rich colour", "Anti-inflammatory", "Everyday cooking", "Pure and natural"],
+      category: "Kilos"
+    },
+    {
+      name: "Red Chilli Powder (200g)",
+      price: 88,
+      brand: "Everest",
+      img: groceryImg("Red Chilli Powder"),
+      description: "Everest Red Chilli Powder brings heat and vibrant colour to curries, marinades, and paneer dishes.",
+      features: ["Vibrant colour", "Perfect heat", "For curries and marinades", "Premium chillies"],
+      category: "Kilos"
+    },
+    {
+      name: "Cumin Seeds (200g)",
+      price: 120,
+      brand: "Catch",
+      img: groceryImg("Cumin Seeds"),
+      description: "Catch Cumin Seeds (jeera) for tempering dals, curries, rice, and adding earthy flavour to Indian dishes.",
+      features: ["Earthy flavour", "For tempering", "Aids digestion", "Premium quality"],
+      category: "Kilos"
+    },
+    {
+      name: "Ginger Garlic Paste (300g)",
+      price: 85,
+      brand: "Smith & Jones",
+      img: groceryImg("Ginger Garlic Paste"),
+      description: "Smith & Jones Ginger Garlic Paste — a ready-to-use base for gravies, paneer dishes, biryanis, and marinades.",
+      features: ["Ready to use", "Base for gravies", "No chopping needed", "Fresh taste"],
+      category: "Kilos"
+    },
+    {
+      name: "Fresh Onions (2kg)",
+      price: 70,
+      brand: "Farm Fresh",
+      img: groceryImg("Fresh Onions"),
+      description: "Farm fresh onions — the base of almost every Indian gravy, curry, and salad.",
+      features: ["Gravy base", "Fresh from farms", "Everyday essential", "Rich flavour"],
+      category: "Kilos"
+    },
+    {
+      name: "Fresh Tomatoes (1kg)",
+      price: 40,
+      brand: "Farm Fresh",
+      img: groceryImg("Fresh Tomatoes"),
+      description: "Juicy farm fresh tomatoes for gravies, paneer butter masala, salads, and everyday cooking.",
+      features: ["Juicy and ripe", "For gravies and salads", "Rich in lycopene", "Fresh from farms"],
+      category: "Kilos"
+    },
+    {
+      name: "Kasuri Methi (100g)",
+      price: 60,
+      brand: "MDH",
+      img: groceryImg("Kasuri Methi"),
+      description: "MDH Kasuri Methi (dried fenugreek leaves) — the signature aroma in paneer butter masala and rich North Indian gravies.",
+      features: ["Signature aroma", "For rich gravies", "Dried fenugreek leaves", "Premium quality"],
+      category: "Kilos"
+    },
+    {
+      name: "Fresh Cream (250ml)",
+      price: 95,
+      brand: "Amul",
+      img: groceryImg("Fresh Cream"),
+      description: "Amul Fresh Cream adds richness to paneer butter masala, soups, desserts, and creamy gravies.",
+      features: ["Rich and smooth", "For creamy gravies", "Desserts and soups", "UHT processed"],
+      category: "Kilos"
+    },
+    {
+      name: "Sugar (1kg)",
+      price: 48,
+      brand: "Madhur",
+      img: groceryImg("Sugar"),
+      description: "Madhur Pure Refined Sugar for tea, desserts, baking, and balancing flavours in curries.",
+      features: ["Pure refined", "Fine crystals", "Everyday essential", "Hygienically packed"],
+      category: "Kilos"
     }
   ],
   "Toys and More": [
@@ -1316,6 +1488,125 @@ export const dummyCategoryProducts = {
       description: "Mattel Thomas and Friends is a train set, perfect for imaginative play and creative expression. Features tracks, trains, and accessories.",
       features: ["Train set", "Imaginative play", "Creative expression", "Tracks and trains"],
       category: "Toys and More"
+    }
+  ],
+  Travel: [
+    {
+      name: "Trolley Suitcase 68cm",
+      price: 4999,
+      brand: "American Tourister",
+      img: travelImg("Trolley Suitcase"),
+      description: "American Tourister hard-shell trolley suitcase with 360° spinner wheels, TSA-friendly lock, and spacious packing compartments — ideal for flights and long trips.",
+      features: ["360° spinner wheels", "Hard shell", "Number lock", "68cm check-in size"],
+      category: "Travel"
+    },
+    {
+      name: "Trekking Backpack 45L",
+      price: 2499,
+      brand: "Wildcraft",
+      img: travelImg("Trekking Backpack"),
+      description: "Wildcraft 45L rucksack with padded straps, rain cover, and multiple compartments — built for treks, hikes, and backpacking trips.",
+      features: ["45L capacity", "Rain cover included", "Padded back support", "Multiple compartments"],
+      category: "Travel"
+    },
+    {
+      name: "Memory Foam Neck Pillow",
+      price: 599,
+      brand: "TravelEase",
+      img: travelImg("Neck Pillow"),
+      description: "Ergonomic memory foam neck pillow with washable cover — comfortable support for flights, trains, and road trips.",
+      features: ["Memory foam", "Washable cover", "Compact and light", "Ergonomic support"],
+      category: "Travel"
+    },
+    {
+      name: "Power Bank 20000mAh",
+      price: 1799,
+      brand: "Mi",
+      img: travelImg("Power Bank"),
+      description: "Mi 20000mAh power bank with fast charging and dual USB output — keeps phones and gadgets charged through long journeys.",
+      features: ["20000mAh", "Fast charging", "Dual USB output", "Compact design"],
+      category: "Travel"
+    },
+    {
+      name: "Universal Travel Adapter",
+      price: 899,
+      brand: "Belkin",
+      img: travelImg("Travel Adapter"),
+      description: "All-in-one universal travel adapter that works in 150+ countries with dual USB ports — a must-have for international trips.",
+      features: ["Works in 150+ countries", "Dual USB ports", "Compact", "Built-in fuse protection"],
+      category: "Travel"
+    },
+    {
+      name: "Camping Tent (2 Person)",
+      price: 3999,
+      brand: "Quechua",
+      img: travelImg("Camping Tent"),
+      description: "Quechua waterproof 2-person camping tent with quick setup — perfect for weekend getaways, treks, and outdoor camping trips.",
+      features: ["Waterproof", "Quick setup", "Fits 2 people", "Lightweight and portable"],
+      category: "Travel"
+    },
+    {
+      name: "Sleeping Bag",
+      price: 1899,
+      brand: "Coleman",
+      img: travelImg("Sleeping Bag"),
+      description: "Coleman all-season sleeping bag with soft insulated lining — warm, comfortable rest on camping and trekking trips.",
+      features: ["All-season insulation", "Soft lining", "Compression sack included", "Machine washable"],
+      category: "Travel"
+    },
+    {
+      name: "Thermosteel Flask 1L",
+      price: 1099,
+      brand: "Milton",
+      img: travelImg("Thermosteel Flask"),
+      description: "Milton Thermosteel Flask keeps drinks hot or cold for 24 hours — the perfect travel companion for road trips and treks.",
+      features: ["24-hour insulation", "1L capacity", "Leak proof", "Stainless steel"],
+      category: "Travel"
+    },
+    {
+      name: "Travel First Aid Kit",
+      price: 499,
+      brand: "SafeTrip",
+      img: travelImg("First Aid Kit"),
+      description: "Compact travel first aid kit with bandages, antiseptic, and essentials — safety must-have for every trip and trek.",
+      features: ["Compact pouch", "Complete essentials", "Lightweight", "Family safe"],
+      category: "Travel"
+    },
+    {
+      name: "Packing Cubes (Set of 6)",
+      price: 999,
+      brand: "TravelEase",
+      img: travelImg("Packing Cubes"),
+      description: "Set of 6 packing cubes to organize clothes and accessories inside your suitcase — pack smarter for every trip.",
+      features: ["Set of 6 sizes", "Keeps luggage organized", "Durable mesh top", "Lightweight"],
+      category: "Travel"
+    },
+    {
+      name: "Binoculars 8x40",
+      price: 6499,
+      brand: "Nikon",
+      img: travelImg("Binoculars"),
+      description: "Nikon 8x40 binoculars with bright, sharp optics — great for wildlife safaris, sightseeing, and trekking viewpoints.",
+      features: ["8x magnification", "Bright optics", "Rubber grip body", "Carry case included"],
+      category: "Travel"
+    },
+    {
+      name: "Duffel Bag 60L",
+      price: 1499,
+      brand: "Skybags",
+      img: travelImg("Duffel Bag"),
+      description: "Skybags 60L foldable duffel bag with wheels — flexible extra luggage for weekend trips and shopping hauls.",
+      features: ["60L capacity", "Wheels and handle", "Foldable", "Water resistant"],
+      category: "Travel"
+    },
+    {
+      name: "Toiletry Organizer Kit",
+      price: 699,
+      brand: "TravelEase",
+      img: travelImg("Toiletry Kit"),
+      description: "Hanging toiletry organizer with waterproof lining and multiple pockets — keeps travel essentials tidy and accessible.",
+      features: ["Hanging hook", "Waterproof lining", "Multiple pockets", "Compact fold"],
+      category: "Travel"
     }
   ],
 };

@@ -105,7 +105,7 @@ const Welcome = () => {
         </h2>
         <div className="category-grid">
           {CATEGORIES.map((cat) => (
-            <Link to={`/category/${cat.name}`} key={cat.name} className="category-item">
+            <Link to={cat.link} key={cat.name} className="category-item">
               <img
                 src={cat.img}
                 alt={cat.name}
