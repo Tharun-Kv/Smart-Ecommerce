@@ -1,5 +1,5 @@
 import React from "react";
-import { HashRouter as Router, Routes, Route, Navigate } from "react-router-dom"; // 👈 Added Navigate
+import { HashRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import Login from "./pages/Login";
 import Signup from "./pages/signup";
 import Terms from "./pages/terms";
@@ -10,16 +10,17 @@ import Payment from "./pages/payment";
 import OrderConfirmed from "./pages/OrderConfirmed";
 import Error404 from "./pages/Error404";
 import TrackOrder from "./pages/TrackOrder";
-import Layout from "./pages/Layout"; // ✅ import
+import Layout from "./pages/Layout";
 import { SearchProvider } from "./pages/search";
+import SearchResults from "./pages/SearchResults";
 import About from "./pages/about";
 import Cancellationandrefund from "./pages/cancellationandrefund";
 import Profile from "./pages/Profile";
 import OrderHistory from "./pages/orderhistory";
-import Settings from  "./pages/t";
+import Settings from "./pages/t";
 import AdminDashboard from "./pages/AdminDashboard";
 import OrderInvoice from "./pages/OrderInvoice";
-import Analyze from"./pages/Analyze";
+import Analyze from "./pages/Analyze";
 import AdminUsers from "./pages/adminuser";
 
 const App = () => {
@@ -30,20 +31,19 @@ const App = () => {
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
 
-          {/* 👇 Redirect root path to login */}
-         
-           <Route path="/" element={<Navigate to="/login" />} />
+          {/* Redirect root path to login */}
+          <Route path="/" element={<Navigate to="/login" />} />
           <Route path="/AdminDashboard" element={<AdminDashboard />} />
-            <Route path="/Analyze" element={<Analyze />} />
-            <Route path="/adminuser"element={<AdminUsers />}   />
+          <Route path="/Analyze" element={<Analyze />} />
+          <Route path="/adminuser" element={<AdminUsers />} />
 
           <Route element={<Layout />}>
-           <Route path="/OrderInvoice" element={<OrderInvoice />} /> 
-         <Route path="/orderhistory" element={<OrderHistory />} />
-          <Route path="/t" element ={<Settings />} />
-           <Route path="/profile" element={<Profile />}  />
-           <Route path="/cancellationandrefund" element={<Cancellationandrefund />}  />
-          <Route path="/about" element={<About/>}  />
+            <Route path="/OrderInvoice" element={<OrderInvoice />} />
+            <Route path="/orderhistory" element={<OrderHistory />} />
+            <Route path="/t" element={<Settings />} />
+            <Route path="/profile" element={<Profile />} />
+            <Route path="/cancellationandrefund" element={<Cancellationandrefund />} />
+            <Route path="/about" element={<About />} />
             <Route path="/terms" element={<Terms />} />
             <Route path="/welcome" element={<Welcome />} />
             <Route path="/cart" element={<Cart />} />
@@ -51,9 +51,10 @@ const App = () => {
             <Route path="/TrackOrder" element={<TrackOrder />} />
             <Route path="/category/:categoryName" element={<CategoryPage />} />
             <Route path="/order-confirmed" element={<OrderConfirmed />} />
+            <Route path="/search-results" element={<SearchResults />} />
             <Route path="/error-404" element={<Error404 />} />
-            
-           </Route>
+            <Route path="*" element={<Error404 />} />
+          </Route>
         </Routes>
       </SearchProvider>
     </Router>
