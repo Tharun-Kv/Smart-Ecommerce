@@ -3,6 +3,7 @@ import { Outlet } from "react-router-dom";
 import Header from "../pages/Header";
 import Footer from "../pages/Footer";
 import ProductComparisonBot from "../components/ProductComparisonBot";
+import ShoppingAssistant from "../components/ShoppingAssistant";
 import { CATEGORIES } from "../config/constants";
 import { dummyCategoryProducts } from "../services/productData";
 
@@ -39,6 +40,7 @@ const Layout = () => {
       </main>
 
       <ProductComparisonBot />
+      <ShoppingAssistant />
     </div>
   );
 };

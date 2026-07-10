@@ -1,0 +1,304 @@
+/* AI Shopping Assistant — floating chat, bottom-left.
+   (The comparison bot occupies bottom-right.) */
+
+.shopping-assistant {
+  position: fixed;
+  bottom: var(--space-5);
+  left: var(--space-5);
+  z-index: 1200;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.assistant-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-5);
+  border: none;
+  border-radius: var(--radius-full);
+  background: var(--color-primary);
+  color: #ffffff;
+  font-size: var(--text-base);
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: var(--shadow-lg);
+}
+
+.assistant-toggle:hover {
+  background: var(--color-accent);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-xl);
+}
+
+.assistant-toggle svg {
+  font-size: 20px;
+}
+
+/* Panel */
+
+.assistant-panel {
+  width: 380px;
+  max-width: calc(100vw - 2 * var(--space-5));
+  height: 520px;
+  max-height: calc(100vh - 160px);
+  margin-bottom: var(--space-3);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-xl);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  animation: fadeIn var(--duration-normal) var(--ease-out);
+}
+
+.assistant-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-3);
+  padding: var(--space-4) var(--space-5);
+  background: var(--color-primary);
+  color: #ffffff;
+}
+
+.assistant-header h3 {
+  margin: 0;
+  font-size: var(--text-base);
+  color: #ffffff;
+}
+
+.assistant-header p {
+  margin: var(--space-1) 0 0;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.assistant-header button {
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.8);
+  cursor: pointer;
+  font-size: 20px;
+  padding: var(--space-1);
+  display: flex;
+}
+
+.assistant-header button:hover {
+  color: #ffffff;
+}
+
+/* Messages */
+
+.assistant-messages {
+  flex: 1;
+  overflow-y: auto;
+  padding: var(--space-4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  background: var(--color-background);
+}
+
+.assistant-message {
+  display: flex;
+  flex-direction: column;
+  max-width: 90%;
+}
+
+.assistant-message.from-user {
+  align-self: flex-end;
+  align-items: flex-end;
+}
+
+.assistant-message.from-bot {
+  align-self: flex-start;
+  align-items: flex-start;
+}
+
+.assistant-bubble {
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-lg);
+  font-size: var(--text-caption);
+  line-height: 1.55;
+  word-break: break-word;
+}
+
+.from-user .assistant-bubble {
+  background: var(--color-accent);
+  color: #ffffff;
+  border-bottom-right-radius: var(--radius-sm);
+}
+
+.from-bot .assistant-bubble {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  color: var(--color-text);
+  border-bottom-left-radius: var(--radius-sm);
+}
+
+.assistant-bullet {
+  display: block;
+  padding-left: var(--space-2);
+}
+
+/* Typing indicator */
+
+.assistant-typing {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}
+
+.assistant-typing span {
+  width: 7px;
+  height: 7px;
+  border-radius: var(--radius-full);
+  background: var(--color-text-secondary);
+  animation: assistant-bounce 1.2s infinite;
+}
+
+.assistant-typing span:nth-child(2) {
+  animation-delay: 0.15s;
+}
+
+.assistant-typing span:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+@keyframes assistant-bounce {
+  0%, 60%, 100% {
+    transform: translateY(0);
+    opacity: 0.5;
+  }
+  30% {
+    transform: translateY(-5px);
+    opacity: 1;
+  }
+}
+
+/* Matched product chips */
+
+.assistant-products {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  margin-top: var(--space-2);
+  width: 100%;
+}
+
+.assistant-product-chip {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-2);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  text-align: left;
+  width: 100%;
+}
+
+.assistant-product-chip:hover {
+  border-color: var(--color-accent);
+  box-shadow: var(--shadow-sm);
+}
+
+.assistant-product-chip img {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  border-radius: var(--radius-sm);
+  flex-shrink: 0;
+}
+
+.assistant-product-chip span {
+  display: flex;
+  flex-direction: column;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.assistant-product-chip em {
+  font-style: normal;
+  color: var(--color-accent);
+  font-weight: 700;
+}
+
+/* Input */
+
+.assistant-input {
+  display: flex;
+  gap: var(--space-2);
+  padding: var(--space-3);
+  border-top: 1px solid var(--color-border);
+  background: var(--color-surface);
+}
+
+.assistant-input input {
+  flex: 1;
+  min-width: 0;
+  padding: var(--space-3) var(--space-4);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-full);
+  font-size: var(--text-caption);
+  outline: none;
+  color: var(--color-text);
+  background: var(--color-background);
+}
+
+.assistant-input input:focus {
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+  background: var(--color-surface);
+}
+
+.assistant-input button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border: none;
+  border-radius: var(--radius-full);
+  background: var(--color-accent);
+  color: #ffffff;
+  cursor: pointer;
+  font-size: 18px;
+  flex-shrink: 0;
+}
+
+.assistant-input button:hover:not(:disabled) {
+  background: var(--color-accent-hover);
+}
+
+.assistant-input button:disabled {
+  background: var(--color-border);
+  cursor: not-allowed;
+}
+
+/* Responsive */
+
+@media (max-width: 480px) {
+  .shopping-assistant {
+    left: var(--space-3);
+    bottom: var(--space-3);
+  }
+
+  .assistant-panel {
+    width: calc(100vw - 2 * var(--space-3));
+    height: 65vh;
+  }
+
+  .assistant-toggle span {
+    display: none;
+  }
+
+  .assistant-toggle {
+    padding: var(--space-3);
+  }
+}
