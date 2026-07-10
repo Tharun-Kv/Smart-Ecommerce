@@ -98,6 +98,11 @@ const Login = () => {
         <form className="login-form" onSubmit={handleLogin}>
           <h2 className="login-title">Welcome Back</h2>
 
+          <p className="demo-note">
+            🎓 This is a student portfolio <strong>demo project</strong> — not a
+            real store. Please do not enter real passwords or personal details.
+          </p>
+
           <div className="input-group">
             <FaUser className="input-icon" />
             <input
