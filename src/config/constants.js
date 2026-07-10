@@ -66,9 +66,17 @@ export const CATEGORIES = [
   },
   {
     name: "Toys and More",
-    link: "/category/Toys",
+    link: "/category/Toys%20and%20More",
     img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTne3pUwgHf1sq9jWIFAZ9_f8eAmmzYLwmlbA&s",
     description: "Fun toys and gifts for kids.",
+  },
+  {
+    name: "Travel",
+    link: "/category/Travel",
+    img: `data:image/svg+xml;utf8,${encodeURIComponent(
+      '<svg xmlns="http://www.w3.org/2000/svg" width="400" height="300"><rect width="400" height="300" rx="16" fill="#2563eb"/><text x="200" y="140" font-family="Arial, sans-serif" font-size="64" text-anchor="middle" dominant-baseline="middle">✈️</text><text x="200" y="215" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="#ffffff" text-anchor="middle">Travel</text></svg>'
+    )}`,
+    description: "Luggage, camping gear, and trip essentials.",
   },
 ];
 
