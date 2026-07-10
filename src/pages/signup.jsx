@@ -25,6 +25,11 @@ const Signup = () => {
         <form className="signup-form" onSubmit={handleSignup}>
           <h2 className="signup-title">Create Account</h2>
 
+          <p className="demo-note">
+            🎓 This is a student portfolio <strong>demo project</strong> — not a
+            real store. Please do not enter real passwords or personal details.
+          </p>
+
           <div className="input-group">
             <FaUser className="input-icon" />
             <input

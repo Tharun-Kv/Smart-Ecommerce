@@ -106,6 +106,10 @@ const Footer = () => {
         <p>
           © {BRAND.name} {BRAND.copyrightYear} • All rights reserved
         </p>
+        <p>
+          Educational portfolio demo — not a real store. No real payments are
+          processed and no orders are fulfilled.
+        </p>
       </div>
     </footer>
   );
