@@ -127,12 +127,13 @@ const OrderHistory = () => {
     fileName={`invoice_${order.id}.pdf`}
     style={{
       padding: "0.5rem 1rem",
-      backgroundColor: "#4f46e5",
+      backgroundColor: "var(--color-accent)",
       color: "white",
-      borderRadius: "6px",
+      borderRadius: "var(--radius-md)",
       textDecoration: "none",
       cursor: "pointer",
       display: "inline-block",
+      fontWeight: 600,
     }}
   >
     {({ loading }) =>

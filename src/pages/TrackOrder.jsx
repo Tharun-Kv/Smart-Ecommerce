@@ -1,52 +1,49 @@
 import React, { useState } from "react";
+
 const TrackOrder = () => {
   const [orderId, setOrderId] = useState("");
   const [email, setEmail] = useState("");
 
-  const handleTrackOrder = () => {
-    alert(`Tracking Order: you order is packed and ready to go \nOrder ID: ${orderId}\nEmail: ${email}`);
-    
+  const handleTrackOrder = (e) => {
+    e.preventDefault();
+    alert(
+      `Tracking Order: you order is packed and ready to go \nOrder ID: ${orderId}\nEmail: ${email}`
+    );
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gradient-to-r from-[#90e0ef] to-[#00b4d8] px-4">
-      <div className="w-full max-w-md bg-white rounded-2xl shadow-xl p-6">
-        <h2 className="text-2xl font-bold text-center text-[#03045e] mb-6">
-          Track Order
-        </h2>
-        <div className="space-y-4">
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">
-              Order ID
-            </label>
-            <input
-              type="text"
-              placeholder="Enter your order ID"
-              value={orderId}
-              onChange={(e) => setOrderId(e.target.value)}
-              className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#0077b6]"
-            />
-          </div>
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">
-              Email ID
-            </label>
-            <input
-              type="email"
-              placeholder="Enter your email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#0077b6]"
-            />
-          </div>
-          <button
-            onClick={handleTrackOrder}
-            className="w-full bg-[#0077b6] hover:bg-[#023e8a] text-white text-lg rounded-xl py-2"
-          >
-            Track Order
-          </button>
+    <div className="form-page">
+      <form className="form-card animate-fade-in" onSubmit={handleTrackOrder}>
+        <h2>Track Order</h2>
+
+        <div className="field">
+          <label htmlFor="track-order-id">Order ID</label>
+          <input
+            id="track-order-id"
+            type="text"
+            placeholder="Enter your order ID"
+            value={orderId}
+            onChange={(e) => setOrderId(e.target.value)}
+            required
+          />
         </div>
-      </div>
+
+        <div className="field">
+          <label htmlFor="track-email">Email ID</label>
+          <input
+            id="track-email"
+            type="email"
+            placeholder="Enter your email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+          />
+        </div>
+
+        <button type="submit" className="btn btn-primary" style={{ width: "100%" }}>
+          Track Order
+        </button>
+      </form>
     </div>
   );
 };

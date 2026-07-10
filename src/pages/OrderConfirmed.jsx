@@ -7,106 +7,100 @@ const OrderConfirmed = () => {
   const product = location.state?.product;
 
   useEffect(() => {
-    if (!product) navigate("/Welcome");
+    if (!product) navigate("/welcome");
   }, [product, navigate]);
 
   return (
-     <div
-    style={{
-      padding: 20,
-      textAlign: "center",
-      backgroundImage: "url('https://cdn.dribbble.com/userupload/17750700/file/original-25b34b4b66de8e49c177862be96b9fb8.gif')",
-      backgroundSize: "cover",
-      backgroundRepeat: "no-repeat",
-      backgroundPosition: "center",
-      minHeight: "100vh",
-      color: "#fff"
-    }}
-  >
-    <div style={{ position: "relative", minHeight: "100vh" }}>
-  <div
-    style={{
-      position: "absolute",
-      
-      top: 0, left: 0, right: 0, bottom: 0,
-      backgroundColor: "rgba(0,0,0,0.5)",
-      zIndex: 0,
-      inset: "-21px"
-    }}
-  />
-  <div
-    style={{
-      position: "relative",
-      zIndex: 1,
-      padding: 20,
-      textAlign: "center",
-      color: "#fff"
-    }}
-  >
-    
-
-    <div style={{ padding: 20, textAlign: "center" }}>
+    <div className="order-confirmed-page">
       <style>{`
+        .order-confirmed-page {
+          min-height: 80vh;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          padding: var(--space-7) var(--space-4);
+          background: var(--color-background);
+        }
+        .order-confirmed-card {
+          background: var(--color-surface);
+          border: 1px solid var(--color-border);
+          border-radius: var(--radius-xl);
+          box-shadow: var(--shadow-lg);
+          padding: var(--space-8) var(--space-6);
+          text-align: center;
+          max-width: 480px;
+          width: 100%;
+          animation: fadeIn var(--duration-slow) var(--ease-out);
+        }
         .checkmark {
           width: 80px;
           height: 80px;
-          border-radius: 50%;
+          border-radius: var(--radius-full);
           display: inline-block;
-          border: 5px solid #00b894;
+          border: 4px solid var(--color-success);
           position: relative;
         }
         .checkmark::after {
           content: '';
           position: absolute;
-          left: 22px;
-          top: 10px;
+          left: 24px;
+          top: 12px;
           width: 20px;
           height: 40px;
-          border-right: 5px solid #00b894;
-          border-bottom: 5px solid #00b894;
+          border-right: 4px solid var(--color-success);
+          border-bottom: 4px solid var(--color-success);
           transform: rotate(45deg);
-          animation: draw 0.5s ease-out;
+          animation: draw 0.5s var(--ease-out);
         }
         @keyframes draw {
           from { height: 0; width: 0; }
           to { height: 40px; width: 20px; }
         }
+        .order-confirmed-card h2 {
+          color: var(--color-success);
+          margin: var(--space-5) 0 var(--space-2);
+          font-size: var(--text-subheading);
+        }
+        .order-confirmed-card p {
+          margin: var(--space-2) 0;
+          color: var(--color-text-secondary);
+        }
+        .order-confirmed-card strong {
+          color: var(--color-text);
+        }
+        .order-confirmed-note {
+          font-size: var(--text-caption);
+          margin-top: var(--space-4);
+        }
       `}</style>
 
-      <div className="checkmark"></div>
-      <h2 style={{ color: "#00b894", marginTop: 20 }}>Payment Successful!</h2>
-      <p>Thank you for your purchase.</p>
-      {product && (
-        <>
-          <p><strong>Product:</strong> {product.name}</p>
-          <p><strong>Amount:</strong> ₹{product.price}</p>
-        </>
-      )}
-      <p style={{ marginTop: 20, fontSize: 14 }}>
-       <h3> 📧 A confirmation email has been sent to your registered email.</h3>
-      </p>
-      
-<button
-  onClick={() => navigate("/Welcome")}
-  style={{
-    marginTop: 30,
-    padding: "10px 20px",
-    backgroundColor: "#00b894",
-    border: "none",
-    borderRadius: 5,
-    color: "#fff",
-    fontSize: 16,
-    cursor: "pointer",
-    transition: "background 0.3s"
-  }}
-  onMouseOver={(e) => (e.target.style.backgroundColor = "#019875")}
-  onMouseOut={(e) => (e.target.style.backgroundColor = "#00b894")}
->
-  Back to Home
-</button>
-    </div>
-    </div>
-    </div>
+      <div className="order-confirmed-card">
+        <div className="checkmark" aria-hidden="true"></div>
+        <h2>Payment Successful!</h2>
+        <p>Thank you for your purchase.</p>
+        {product && (
+          <>
+            <p>
+              <strong>Product:</strong> {product.name}
+            </p>
+            <p>
+              <strong>Amount:</strong> ₹{product.price}
+            </p>
+          </>
+        )}
+        <p className="order-confirmed-note">
+          📧 A confirmation email has been sent to your registered email.
+        </p>
+
+        <button
+          type="button"
+          className="btn btn-primary"
+          style={{ marginTop: "var(--space-5)" }}
+          onClick={() => navigate("/welcome")}
+        >
+          Back to Home
+        </button>
+      </div>
     </div>
   );
 };

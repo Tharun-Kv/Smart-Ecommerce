@@ -1,10 +1,11 @@
-/* Error404.css */
+/* 404 page — consumes design tokens from index.css */
 
 .page_404 {
-  padding: 40px 0;
-  background: #ffffff;
-  font-family: 'Arial', sans-serif;
+  padding: var(--space-7) 0;
+  background: var(--color-background);
+  font-family: var(--font-family);
   text-align: center;
+  min-height: 70vh;
 }
 
 .four_zero_four_bg {
@@ -16,23 +17,45 @@
 }
 
 .four_zero_four_bg h1 {
-  font-size: 80px;
-  color: darkred;
+  font-size: var(--text-hero);
+  color: var(--color-primary);
+  margin: 0;
 }
 
 .contant_box_404 {
   margin-top: -50px;
-  color: red;
+  color: var(--color-text-secondary);
+}
+
+.contant_box_404 .h1 {
+  color: var(--color-text);
+  font-size: var(--text-subheading);
+  margin-bottom: var(--space-2);
+}
+
+.contant_box_404 h2 {
+  font-size: var(--text-base);
+  font-weight: 400;
+  color: var(--color-text-secondary);
+  margin: 0 var(--space-4);
 }
 
 .link_404 {
-  color: #fff !important;
-  padding: 10px 20px;
-  background: #1de656;
-  margin: 20px 0;
+  color: #fff;
+  padding: var(--space-3) var(--space-5);
+  background: var(--color-accent);
+  margin: var(--space-5) 0;
   display: inline-block;
   border: none;
-  border-radius: 5px;
+  border-radius: var(--radius-md);
+  font-weight: 600;
+  font-size: var(--text-base);
   text-decoration: none;
   cursor: pointer;
+}
+
+.link_404:hover {
+  background: var(--color-accent-hover);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
 }

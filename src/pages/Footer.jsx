@@ -1,111 +1,111 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import {
+  FiLock,
+  FiTruck,
+  FiThumbsUp,
+  FiPhone,
+  FiMail,
+  FiMapPin,
+} from "react-icons/fi";
+import {
+  FaFacebookF,
+  FaTwitter,
+  FaInstagram,
+  FaPinterestP,
+  FaYoutube,
+} from "react-icons/fa";
+import {
+  BRAND,
+  FOOTER_FEATURES,
+  FOOTER_LINK_GROUPS,
+  CONTACT_INFO,
+  SOCIAL_LINKS,
+} from "../config/constants";
 import "./Footer.css";
+
+const featureIcons = {
+  lock: <FiLock aria-hidden="true" />,
+  truck: <FiTruck aria-hidden="true" />,
+  thumbsUp: <FiThumbsUp aria-hidden="true" />,
+};
+
+const socialIcons = {
+  Facebook: <FaFacebookF aria-hidden="true" />,
+  Twitter: <FaTwitter aria-hidden="true" />,
+  Instagram: <FaInstagram aria-hidden="true" />,
+  Pinterest: <FaPinterestP aria-hidden="true" />,
+  YouTube: <FaYoutube aria-hidden="true" />,
+};
 
 const Footer = () => {
   return (
     <footer className="footer-container">
       <div className="top-icons">
-        <div className="icon-item">
-          <img src="https://img.icons8.com/ios/50/lock--v1.png" alt="Secure Payments" />
-          <p>Secure Payments</p>
-        </div>
-        <div className="icon-item">
-          <img src="https://img.icons8.com/ios/50/delivery.png" alt="Shipping in India" />
-          <p>Shipping in India</p>
-        </div>
-        <div className="icon-item">
-          <img src="https://img.icons8.com/ios/50/facebook-like.png" alt="Great Value" />
-          <p>Great Value & Quality</p>
-        </div>
+        {FOOTER_FEATURES.map((feature) => (
+          <div className="icon-item" key={feature.label}>
+            {featureIcons[feature.icon]}
+            <p>{feature.label}</p>
+          </div>
+        ))}
       </div>
 
       <div className="footer-links">
-        <div>
-          <h4>Policies</h4>
-          <ul>
-            <li>
-               <Link to="/cancellationandrefund" style={{ textDecoration: "none", color: "inherit" }}>
-                Cancellation & Refund
-              </Link>
-            </li>
-            <li>Terms & Conditions</li>
-            <li>Shipping & Delivery</li>
-            <li>
-              <Link to="/PrivacyPage" style={{ textDecoration: "none", color: "inherit" }}>
-                Privacy
-              </Link>
-            </li>
-          </ul>
-        </div>
-        <div>
-          <h4>Account</h4>
-          <ul>
-            <li>
-              {/* Link to the track order page */}
-              <Link to="/TrackOrder" style={{ textDecoration: "none", color: "inherit" }}>
-                Track Order
-              </Link>
-            </li>
-          </ul>
-        </div>
+        {FOOTER_LINK_GROUPS.map((group) => (
+          <div key={group.title}>
+            <h4>{group.title}</h4>
+            <ul>
+              {group.links.map((link) => (
+                <li key={link.label}>
+                  <Link to={link.to}>{link.label}</Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
 
         <div>
-          <h4>Company</h4>
-          <ul>
-            <li>
-              <Link to="/about" style={{ textDecoration: "none", color: "inherit" }}>
-                About us
-              </Link>
-            </li>
-            <li>FAQs</li>
-          </ul>
-        </div>
-        <div>
           <h4>Contact Us</h4>
-          <p><img src="https://img.icons8.com/ios/20/phone.png" alt="Phone" /> 
-          <a href="tel:8277487233">8277487233</a>
-          </p>
-         <p>
-  <img src="https://img.icons8.com/ios/20/filled-message.png" alt="Email" /> 
-  <a href="mailto:Ecommrece@gmail.com" >
-    Ecommrece@gmail.com
-  </a>
-</p>
           <p>
-  <img src="https://img.icons8.com/ios/20/marker.png" alt="Location" />
-  <a
-    href="https://www.google.com/maps/search/?api=1&query=JP+Nagar+Bengaluru+Karnataka"
-    target="_blank"
-    rel="noopener noreferrer"
-    
-  > JP Nagar,Bengaluru,Karnataka
-  </a>
-</p>
+            <FiPhone aria-hidden="true" />
+            <a href={`tel:${CONTACT_INFO.phone}`}>{CONTACT_INFO.phone}</a>
+          </p>
+          <p>
+            <FiMail aria-hidden="true" />
+            <a href={`mailto:${CONTACT_INFO.email}`}>{CONTACT_INFO.email}</a>
+          </p>
+          <p>
+            <FiMapPin aria-hidden="true" />
+            <a
+              href={CONTACT_INFO.locationUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {CONTACT_INFO.location}
+            </a>
+          </p>
         </div>
       </div>
 
       <div className="social-icons">
-        <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/0/05/Facebook_Logo_%282019%29.png" alt="Facebook" />
-        </a>
-        <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
-          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQO8gCU7Oj_pRM0n2oyCJLScrR1cx2cOtv_pLc5zlJ6zCW1QtKgYFb3eMCmrinsMSaNM90&usqp=CAU" alt="Twitter" />
-        </a>
-        <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram" />
-        </a>
-        <a href="https://www.pinterest.com" target="_blank" rel="noopener noreferrer">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Pinterest-logo.png" alt="Pinterest" />
-        </a>
-        <a href="https://www.youtube.com" target="_blank" rel="noopener noreferrer">
-          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQy1ayTxdtVI7a6XhclpabhMk7U2HL4xry2w&s" alt="YouTube" />
-        </a>
+        {SOCIAL_LINKS.map((social) => (
+          <a
+            key={social.name}
+            href={social.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={social.name}
+          >
+            {socialIcons[social.name]}
+          </a>
+        ))}
       </div>
 
       <div className="footer-bottom">
-        <span className="footer-logo">Smart E-Commerce</span>
-        <p>© Smart E-Commerce 2025 • All rights reserved</p>
+        <span className="footer-logo">{BRAND.name}</span>
+        <p>
+          © {BRAND.name} {BRAND.copyrightYear} • All rights reserved
+        </p>
       </div>
     </footer>
   );

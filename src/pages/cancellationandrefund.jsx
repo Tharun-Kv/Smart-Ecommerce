@@ -6,24 +6,25 @@ const Cancellationandrefund = () => {
 
   const containerStyle = {
     maxWidth: "900px",
-    margin: "auto",
-    padding: "30px",
-    fontFamily: "Segoe UI, sans-serif",
-    color: "#03045e",
-    backgroundColor: "#f8f9fa",
-    borderRadius: "10px",
+    margin: "var(--space-6) auto",
+    padding: "var(--space-6)",
+    fontFamily: "var(--font-family)",
+    color: "var(--color-text-secondary)",
+    backgroundColor: "var(--color-surface)",
+    border: "1px solid var(--color-border)",
+    borderRadius: "var(--radius-lg)",
   };
 
   const headingStyle = {
-    fontSize: "2rem",
-    marginBottom: "20px",
-    color: "#0077b6",
+    fontSize: "var(--text-subheading)",
+    marginBottom: "var(--space-5)",
+    color: "var(--color-text)",
   };
 
   const sectionHeadingStyle = {
-    marginTop: "30px",
-    color: "#023e8a",
-    fontSize: "1.3rem",
+    marginTop: "var(--space-6)",
+    color: "var(--color-text)",
+    fontSize: "var(--text-body)",
   };
 
   const paragraphStyle = {
