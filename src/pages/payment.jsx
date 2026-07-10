@@ -109,7 +109,13 @@ const PaymentPage = () => {
 
   return (
     <main className="payment-wrapper fade-in" role="main" aria-labelledby="payment-header">
-      <h2 id="payment-header" className="title">🧾 Payment Gateway</h2>
+      <h2 id="payment-header" className="title">🧾 Demo Checkout</h2>
+
+      <p className="demo-note">
+        ⚠️ <strong>Demo project</strong> — no real payment is processed and
+        nothing is charged or shipped. Do <strong>not</strong> enter real card
+        details; use any test numbers.
+      </p>
       <section className="product-info" aria-label={`Product you are buying: ${product.name}`}>
         <p>
           You're buying: <strong>{product.name}</strong>

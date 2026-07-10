@@ -377,6 +377,19 @@ a:focus-visible,
   margin: 0 0 var(--space-5);
 }
 
+.demo-note {
+  display: block;
+  background: var(--color-accent-soft);
+  border: 1px solid var(--color-accent);
+  color: var(--color-primary);
+  border-radius: var(--radius-md);
+  padding: var(--space-3) var(--space-4);
+  font-size: var(--text-caption);
+  line-height: 1.5;
+  margin: 0 0 var(--space-4);
+  text-align: center;
+}
+
 .section-eyebrow {
   display: block;
   font-size: var(--text-caption);
