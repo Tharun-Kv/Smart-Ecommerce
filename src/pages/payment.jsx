@@ -109,7 +109,13 @@ const PaymentPage = () => {
 
   return (
     <main className="payment-wrapper fade-in" role="main" aria-labelledby="payment-header">
-      <h2 id="payment-header" className="title">🧾 Payment Gateway</h2>
+      <h2 id="payment-header" className="title">🧾 Demo Checkout</h2>
+
+      <p className="demo-note">
+        ⚠️ <strong>Demo project</strong> — no real payment is processed and
+        nothing is charged or shipped. Do <strong>not</strong> enter real card
+        details; use any test numbers.
+      </p>
       <section className="product-info" aria-label={`Product you are buying: ${product.name}`}>
         <p>
           You're buying: <strong>{product.name}</strong>
@@ -280,23 +286,22 @@ const PaymentPage = () => {
       </form>
 
       <style>{`
-        /* Root styling variables */
-        :root {
-          --primary-color: #0d6efd;
-          --primary-hover: #0b5ed7;
-          --bg-color: #f8f9fa;
-          --input-bg: #ffffff;
-          --input-border: #ced4da;
-          --input-focus: #0d6efd;
-          --text-color: #212529;
-          --error-color: #dc3545;
-          --shadow-light: rgba(13, 110, 253, 0.25);
-          --shadow-strong: rgba(13, 110, 253, 0.5);
-          --border-radius: 8px;
+        /* Page-scoped styling variables mapped to the global design tokens.
+           Scoped to the wrapper so they never leak into other pages. */
+        .payment-wrapper, .spinner-container {
+          --primary-color: var(--color-accent);
+          --primary-hover: var(--color-accent-hover);
+          --bg-color: var(--color-surface);
+          --input-bg: var(--color-surface);
+          --input-border: var(--color-border);
+          --input-focus: var(--color-accent);
+          --text-color: var(--color-text);
+          --error-color: var(--color-error);
+          --shadow-light: rgba(37, 99, 235, 0.2);
+          --shadow-strong: rgba(37, 99, 235, 0.35);
+          --border-radius: var(--radius-md);
           --transition: 0.3s ease;
-          font-size: 16px;
-          font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
-            Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+          font-family: var(--font-family);
         }
 
         /* Fade-in animation */
@@ -337,11 +342,11 @@ const PaymentPage = () => {
           margin: 40px auto;
           padding: 30px 40px;
           background-color: var(--bg-color);
-          border-radius: var(--border-radius);
-          box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+          border: 1px solid var(--color-border);
+          border-radius: var(--radius-lg);
+          box-shadow: var(--shadow-lg);
           color: var(--text-color);
           text-align: center;
-          user-select: none;
         }
 
         /* Title */
@@ -371,7 +376,7 @@ const PaymentPage = () => {
         .price {
           font-weight: 600;
           font-size: 1.3rem;
-          color: #2c3e50;
+          color: var(--color-text);
         }
 
         /* Form */
@@ -383,7 +388,7 @@ const PaymentPage = () => {
           display: block;
           font-weight: 600;
           margin-bottom: 8px;
-          color: #34495e;
+          color: var(--color-text-secondary);
         }
         .select {
           width: 100%;
@@ -450,7 +455,7 @@ const PaymentPage = () => {
         /* Sections */
         .qr-section, .emi-section, .wallet-section {
           margin-top: 20px;
-          color: #4b5563;
+          color: var(--color-text-secondary);
           font-size: 1rem;
         }
         .qr-image {
@@ -468,7 +473,7 @@ const PaymentPage = () => {
           margin-top: 30px;
           width: 100%;
           padding: 16px 0;
-          background: linear-gradient(90deg, #0d6efd 0%, #0b5ed7 100%);
+          background: linear-gradient(90deg, var(--color-accent) 0%, var(--color-accent-hover) 100%);
           border: none;
           border-radius: var(--border-radius);
           font-size: 1.2rem;
@@ -480,7 +485,7 @@ const PaymentPage = () => {
           user-select: none;
         }
         .pay-button:hover:not(:disabled) {
-          background: linear-gradient(90deg, #0b5ed7 0%, #0d6efd 100%);
+          background: linear-gradient(90deg, var(--color-accent-hover) 0%, var(--color-accent) 100%);
           transform: scale(1.03);
           box-shadow: 0 12px 25px var(--shadow-strong);
         }

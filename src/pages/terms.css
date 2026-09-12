@@ -1,13 +1,16 @@
+/* Terms page — consumes design tokens from index.css */
+
 .terms-container {
-    padding: 40px;
-    max-width: 800px;
-    margin: 0 auto;
-    line-height: 1.6;
-    font-family: "Segoe UI", sans-serif;
-  }
-  
-  .terms-container h2 {
-    color: #03045e;
-    margin-bottom: 20px;
-  }
-  
+  padding: var(--space-7) var(--space-5);
+  max-width: 800px;
+  margin: 0 auto;
+  line-height: var(--leading-normal);
+  font-family: var(--font-family);
+  color: var(--color-text-secondary);
+}
+
+.terms-container h2 {
+  color: var(--color-text);
+  font-size: var(--text-subheading);
+  margin: 0 0 var(--space-5);
+}

@@ -14,9 +14,9 @@ const Error404 = () => {
               <h1 className="text-center">404</h1>
             </div>
             <div className="contant_box_404">
-              <h1 className="h1">Caution</h1>
-              <h2>The deltails You Entered are incorrect </h2>
-              <button className="link_404" onClick={() => navigate("/Welcome")}>Go to Home</button>
+              <h1 className="h1">Page not found</h1>
+              <h2>The page you're looking for doesn't exist or has moved.</h2>
+              <button className="link_404" onClick={() => navigate("/welcome")}>Go to Home</button>
             </div>
           </div>
         </div>
