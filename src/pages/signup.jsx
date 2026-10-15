@@ -1,7 +1,8 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FaUser, FaEnvelope, FaLock } from "react-icons/fa";
 import "./signup.css";
+import { signup } from "@netlify/identity";
 
 const Signup = () => {
   const [username, setUsername] = useState("");
@@ -9,14 +10,31 @@ const Signup = () => {
   const [password, setPassword] = useState("");
   const [agreedToTerms, setAgreedToTerms] = useState(false);
 
-  const handleSignup = (e) => {
+  const navigate = useNavigate();
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
+  const [message, setMessage] = useState("");
+
+  const handleSignup = async (e) => {
     e.preventDefault();
+    if (loading) return;
     if (!agreedToTerms) {
       alert("You must agree to the terms and conditions.");
       return;
     }
 
-    // Your signup logic here
+    setLoading(true);
+    setError("");
+    setMessage("");
+    try {
+      const user = await signup(email.trim(), password, { full_name: username.trim() });
+      if (user.emailVerified) navigate("/welcome", { replace: true });
+      else setMessage("Check your email to confirm your account, then return to log in.");
+    } catch (err) {
+      setError(err.message || "Unable to create your account. Please try again.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -24,6 +42,8 @@ const Signup = () => {
       <div className="signup-container">
         <form className="signup-form" onSubmit={handleSignup}>
           <h2 className="signup-title">Create Account</h2>
+          {error && <p role="alert">{error}</p>}
+          {message && <p role="status">{message}</p>}
 
           <p className="demo-note">
             🎓 This is a student portfolio <strong>demo project</strong> — not a
@@ -57,6 +77,8 @@ const Signup = () => {
             <input
               type="password"
               placeholder="Password"
+              minLength={8}
+              autoComplete="new-password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
@@ -74,14 +96,14 @@ const Signup = () => {
             />
             <label htmlFor="terms">
               I agree to the{" "}
-              <a href="/terms" target="_blank" rel="noopener noreferrer">
+              <a href="/#/terms" target="_blank" rel="noopener noreferrer">
                 Terms and Conditions
               </a>
             </label>
           </div>
 
-          <button type="submit" className="signup-button">
-            Sign Up
+          <button type="submit" disabled={loading} className="signup-button">
+            {loading ? "Creating account..." : "Sign Up"}
           </button>
 
           <p className="login-link">

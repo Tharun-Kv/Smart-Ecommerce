@@ -6,6 +6,7 @@
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
     "@lottiefiles/react-lottie-player": "^3.6.0",
+    "@netlify/identity": "^2.0.0",
     "@react-pdf/renderer": "^4.3.0",
     "@testing-library/dom": "^10.4.0",
     "@testing-library/jest-dom": "^6.6.3",
@@ -51,5 +52,10 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "jest": {
+    "moduleNameMapper": {
+      "^react-router-dom$": "<rootDir>/node_modules/react-router/dist/development/index.js"
+    }
   }
 }

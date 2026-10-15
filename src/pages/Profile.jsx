@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { getAuth, onAuthStateChanged } from "firebase/auth";
+import { getUser, onAuthChange, logout } from "@netlify/identity";
 
 const Profile = () => {
   const navigate = useNavigate();
-  const auth = getAuth();
   const [loading, setLoading] = useState(true);
   const [user, setUser] = useState({
     name: "",
@@ -16,35 +15,25 @@ const Profile = () => {
   });
 
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (firebaseUser) => {
-      if (firebaseUser) {
-        // Check if user has Google profile photo
-        const googlePhoto = firebaseUser.providerData.some(
-          provider => provider.providerId === 'google.com' && provider.photoURL
-        ) ? firebaseUser.photoURL + "?sz=200" // Higher resolution
-          : "https://cdn-icons-png.flaticon.com/512/3135/3135715.png";
-
-        setUser({
-          name: firebaseUser.displayName || "User",
-          email: firebaseUser.email || "",
-          mobile: firebaseUser.phoneNumber || "",
-          address: "",
-          joined: firebaseUser.metadata.creationTime 
-            ? new Date(firebaseUser.metadata.creationTime).toLocaleDateString('en-US', { 
-                month: 'long', 
-                year: 'numeric' 
-              })
-            : "Unknown",
-          profileImage: googlePhoto
-        });
+    const update = async () => {
+      const currentUser = await getUser();
+      if (!currentUser) {
+        navigate("/login", { replace: true });
       } else {
-        navigate("/login");
+        setUser({
+          name: currentUser.userMetadata?.full_name || currentUser.email,
+          email: currentUser.email || "",
+          mobile: currentUser.userMetadata?.mobile || "",
+          address: currentUser.userMetadata?.address || "",
+          joined: currentUser.createdAt ? new Date(currentUser.createdAt).toLocaleDateString() : "Unknown",
+          profileImage: "https://cdn-icons-png.flaticon.com/512/3135/3135715.png",
+        });
       }
       setLoading(false);
-    });
-
-    return () => unsubscribe();
-  }, [auth, navigate]);
+    };
+    update();
+    return onAuthChange(update);
+  }, [navigate]);
 
   if (loading) {
     return (
@@ -84,17 +73,17 @@ const Profile = () => {
           <div style={styles.row}><strong>Member Since:</strong> {user.joined}</div>
 
           <div style={styles.buttonGroup}>
-            <button style={styles.button} onClick={() => alert("Edit Profile clicked")}>
+            <button style={styles.button} onClick={() => navigate("/t")}>
               ✏️ Edit Profile
             </button>
-            <button style={styles.button} onClick={() => alert("Change Password clicked")}>
+            <button style={styles.button} onClick={() => navigate("/login")}>
               🔒 Change Password
             </button>
             <button 
               style={styles.logoutButton} 
-              onClick={() => {
-                auth.signOut();
-                navigate("/");
+              onClick={async () => {
+                try { await logout(); navigate("/login"); }
+                catch { window.alert("Unable to log out. Please try again."); }
               }}
             >
               🚪 Logout
