@@ -1,27 +1,29 @@
 // src/pages/Settings.jsx
 import React, { useState, useEffect } from "react";
 import "./t.css";
-import { auth } from "./firebase-config";
-import { updateProfile } from "firebase/auth";
+import { getUser, updateUser } from "@netlify/identity";
 
 const Settings = () => {
-  const user = auth.currentUser;
   const [loading, setLoading] = useState(true);
-  const [name, setName] = useState(user?.displayName || "");
-  const [email] = useState(user?.email || "");
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
   const [mobile, setMobile] = useState("");
   const [address, setAddress] = useState("");
   const [status, setStatus] = useState("");
   useEffect(() => {
-      const timer = setTimeout(() => setLoading(false), 1000);
-      return () => clearTimeout(timer);
-    }, []);
+    getUser().then(user => {
+      setName(user?.userMetadata?.full_name || "");
+      setEmail(user?.email || "");
+      setMobile(user?.userMetadata?.mobile || "");
+      setAddress(user?.userMetadata?.address || "");
+      setLoading(false);
+    });
+  }, []);
 
   const handleUpdate = async (e) => {
     e.preventDefault();
     try {
-      await updateProfile(user, { displayName: name });
-      // You can also update address/mobile to Firestore here if needed
+      await updateUser({ data: { full_name: name, mobile, address } });
       setStatus("Profile updated successfully!");
     } catch (err) {
       setStatus("Update failed. Try again.");

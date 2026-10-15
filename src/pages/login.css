@@ -216,3 +216,19 @@
     padding: var(--space-6) var(--space-5);
   }
 }
+
+button.password-toggle,
+button.forgot-password-link {
+  border: 0;
+  background: transparent;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+}
+.login-form [role="alert"], .signup-form [role="alert"] {
+  color: var(--color-error);
+}
+.login-button:disabled, .signup-button:disabled {
+  opacity: 0.65;
+  cursor: wait;
+}
