@@ -1,161 +1,147 @@
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { FaUser, FaLock, FaEye, FaEyeSlash } from "react-icons/fa";
-import {
-  auth,
-  googleProvider,
-  facebookProvider,
-} from "./firebase-config";
-import { signInWithPopup } from "firebase/auth";
+import { login, getSettings, oauthLogin, requestPasswordRecovery, updateUser } from "@netlify/identity";
 import "./login.css";
 
 const Login = () => {
-  const [loading, setLoading] = useState(true);
-  const [username, setUsername] = useState("");
+  const [username, setUsername] = useState(localStorage.getItem("savedUsername") || "");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
-  const [rememberMe, setRememberMe] = useState(false);
+  const [rememberMe, setRememberMe] = useState(Boolean(localStorage.getItem("savedUsername")));
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
+  const [message, setMessage] = useState("");
+  const [providers, setProviders] = useState({});
+  const recovery = new URLSearchParams(window.location.hash.split("?")[1]).has("recovery");
   const navigate = useNavigate();
 
   useEffect(() => {
-    const timer = setTimeout(() => setLoading(false), 1000);
-    return () => clearTimeout(timer);
-  }, []);
-
-  useEffect(() => {
-    const savedUsername = localStorage.getItem("savedUsername");
-    const savedPassword = localStorage.getItem("savedPassword");
-    if (savedUsername && savedPassword) {
-      setUsername(savedUsername);
-      setPassword(savedPassword);
-      setRememberMe(true);
+    localStorage.removeItem("savedPassword");
+    getSettings().then(settings => setProviders(settings.providers || {})).catch(() => {});
+    const callbackError = sessionStorage.getItem("authCallbackError");
+    if (callbackError) {
+      setError(callbackError);
+      sessionStorage.removeItem("authCallbackError");
     }
   }, []);
 
-  const togglePasswordVisibility = () => {
-    setShowPassword(!showPassword);
-  };
-
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
-
-    const isAdmin = username === "admin" && password === "admin@123";
-    const isUser = username === "Tharun" && password === "Tharun@17";
-
-    if (isAdmin || isUser) {
-      localStorage.setItem("loggedInUser", username);
-      if (rememberMe) {
-        localStorage.setItem("savedUsername", username);
-        localStorage.setItem("savedPassword", password);
-      } else {
-        localStorage.removeItem("savedUsername");
-        localStorage.removeItem("savedPassword");
-      }
-
-      // Navigate based on credentials
-      if (isAdmin) {
-        navigate("/AdminDashboard");
-      } else {
-        navigate("/welcome");
-      }
-    } else {
-      alert("Invalid credentials");
-    }
-  };
-
-  const handleGoogleLogin = async () => {
+    if (loading) return;
+    setLoading(true);
+    setError("");
+    setMessage("");
     try {
-      const result = await signInWithPopup(auth, googleProvider);
-      alert(`Logged in as ${result.user.displayName}`);
-      navigate("/welcome");
-    } catch (error) {
-      console.error("Google login error:", error.message);
+      if (recovery) {
+        await updateUser({ password });
+      } else {
+        await login(username.trim(), password);
+      }
+      if (rememberMe) localStorage.setItem("savedUsername", username.trim());
+      else localStorage.removeItem("savedUsername");
+      navigate("/welcome", { replace: true });
+    } catch (err) {
+      setError(err.status === 401 || err.status === 400
+        ? "Unable to sign in. Check your email and password, and confirm your email if you just signed up."
+        : "Unable to complete sign-in. Please try again. " + (err.message || ""));
+    } finally {
+      setLoading(false);
     }
   };
 
-  const handleFacebookLogin = async () => {
+  const handleRecovery = async () => {
+    if (!username.trim()) {
+      setError("Enter your account email above to request a password reset.");
+      return;
+    }
+    setLoading(true);
+    setError("");
     try {
-      const result = await signInWithPopup(auth, facebookProvider);
-      alert(`Logged in as ${result.user.displayName}`);
-      navigate("/welcome");
-    } catch (error) {
-      console.error("Facebook login error:", error.message);
+      await requestPasswordRecovery(username.trim());
+      setMessage("If an account exists for that email, a password reset link has been sent.");
+    } catch {
+      setError("Unable to send a reset link. Check your email address and try again.");
+    } finally {
+      setLoading(false);
     }
   };
 
-  if (loading) {
-    return (
-      <div className="loader-container">
-        <div className="loader"></div>
-        <p>Please wait, your login page is loading...</p>
-      </div>
-    );
-  }
+  const handleSocialLogin = async (provider) => {
+    setError("");
+    try {
+      await oauthLogin(provider);
+    } catch {
+      setError("Unable to start social sign-in. Please sign in with your email instead.");
+    }
+  };
 
   return (
     <div className="page-container">
       <div className="login-container">
         <form className="login-form" onSubmit={handleLogin}>
-          <h2 className="login-title">Welcome Back</h2>
+          <h2 className="login-title">{recovery ? "Set a new password" : "Welcome Back"}</h2>
 
           <p className="demo-note">
             🎓 This is a student portfolio <strong>demo project</strong> — not a
             real store. Please do not enter real passwords or personal details.
           </p>
 
-          <div className="input-group">
+          {error && <p role="alert">{error}</p>}
+          {message && <p role="status">{message}</p>}
+          {!recovery && <div className="input-group">
             <FaUser className="input-icon" />
             <input
-              type="text"
-              placeholder="Username"
+              type="email"
+              aria-label="Email"
+              autoComplete="username"
+              placeholder="Email"
               value={username}
               onChange={(e) => setUsername(e.target.value)}
               required
             />
-          </div>
+          </div>}
 
           <div className="input-group">
             <FaLock className="input-icon" />
             <input
               type={showPassword ? "text" : "password"}
               placeholder="Password"
+              aria-label="Password"
+              autoComplete={recovery ? "new-password" : "current-password"}
+              minLength={recovery ? 8 : undefined}
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
             />
-            <span className="password-toggle" onClick={togglePasswordVisibility}>
+            <button type="button" className="password-toggle" aria-label={showPassword ? "Hide password" : "Show password"} onClick={() => setShowPassword(!showPassword)}>
               {showPassword ? <FaEyeSlash /> : <FaEye />}
-            </span>
+            </button>
           </div>
 
-          <div className="login-options">
+          {!recovery && <div className="login-options">
             <label className="remember-me">
               <input
                 type="checkbox"
                 checked={rememberMe}
                 onChange={(e) => setRememberMe(e.target.checked)}
               />
-              Remember me
+              Remember email
             </label>
-            <Link to="/forgot-password" className="forgot-password-link">
+            <button type="button" disabled={loading} onClick={handleRecovery} className="forgot-password-link">
               Forgot Password?
-            </Link>
-          </div>
+            </button>
+          </div>}
 
-          <button type="submit" className="login-button">
-            Login
+          <button type="submit" disabled={loading} className="login-button">
+            {loading ? "Please wait..." : recovery ? "Update password" : "Login"}
           </button>
 
-          <div className="divider"><span>or</span></div>
-
-          <div className="social-login-buttons">
-            <button type="button" className="icon-button" onClick={handleGoogleLogin}>
+          {!recovery && providers.google && <div className="social-login-buttons">
+            <button type="button" className="icon-button" aria-label="Sign in with Google" onClick={() => handleSocialLogin("google")}>
               <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" alt="Google" />
             </button>
-            <button type="button" className="icon-button" onClick={handleFacebookLogin}>
-              <img src="https://upload.wikimedia.org/wikipedia/commons/0/05/Facebook_Logo_%282019%29.png" alt="Facebook" />
-            </button>
-          </div>
+          </div>}
 
           <p className="signup-link">
             Don't have an account? <Link to="/signup">Sign up</Link>

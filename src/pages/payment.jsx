@@ -109,12 +109,15 @@ const PaymentPage = () => {
 
   return (
     <main className="payment-wrapper fade-in" role="main" aria-labelledby="payment-header">
-      <h2 id="payment-header" className="title">🧾 Demo Checkout</h2>
+      <div className="demo-watermark" aria-hidden="true">DEMO — NOT A REAL PAYMENT FORM</div>
 
-      <p className="demo-note">
-        ⚠️ <strong>Demo project</strong> — no real payment is processed and
-        nothing is charged or shipped. Do <strong>not</strong> enter real card
-        details; use any test numbers.
+      <h2 id="payment-header" className="title">🧾 Demo Checkout (Simulation Only)</h2>
+
+      <p className="demo-note" role="alert">
+        ⚠️ <strong>Student portfolio demo — simulation only.</strong> This page does not
+        connect to any payment processor, and nothing is charged, stored, or shipped.
+        Do <strong>not</strong> enter your real card number, expiry, or CVV — use any
+        fake test digits (e.g. 4242 4242 4242 4242).
       </p>
       <section className="product-info" aria-label={`Product you are buying: ${product.name}`}>
         <p>
@@ -159,17 +162,17 @@ const PaymentPage = () => {
             <div className="input-group">
               <input
                 type="text"
-                placeholder="Card Number"
+                placeholder="Test Card Number (e.g. 4242 4242 4242 4242)"
                 value={formatCardNumber(cardNumber)}
                 onChange={(e) => setCardNumber(e.target.value.replace(/\s+/g, ''))}
                 className={`input ${errors.cardNumber ? 'error' : ''}`}
-                name="cardNumber"
+                name="demoCardNumber"
                 inputMode="numeric"
                 pattern="[0-9\s]{13,19}"
                 maxLength={19}
                 required
                 aria-required="true"
-                autoComplete="cc-number"
+                autoComplete="off"
                 aria-invalid={!!errors.cardNumber}
                 aria-describedby={errors.cardNumber ? "cardNumberError" : undefined}
               />
@@ -179,14 +182,14 @@ const PaymentPage = () => {
             <div className="input-group">
               <input
                 type="text"
-                placeholder="Card Holder Name"
+                placeholder="Any Name (not verified)"
                 value={cardHolder}
                 onChange={(e) => setCardHolder(e.target.value)}
                 className={`input ${errors.cardHolder ? 'error' : ''}`}
-                name="cardHolder"
+                name="demoCardHolder"
                 required
                 aria-required="true"
-                autoComplete="cc-name"
+                autoComplete="off"
                 aria-invalid={!!errors.cardHolder}
                 aria-describedby={errors.cardHolder ? "cardHolderError" : undefined}
               />
@@ -197,33 +200,33 @@ const PaymentPage = () => {
               <div className="input-group">
                 <input
                   type="text"
-                  placeholder="Expiry (MM/YY)"
+                  placeholder="Any MM/YY (not verified)"
                   value={expiry}
                   onChange={(e) => setExpiry(e.target.value)}
                   className={`input half ${errors.expiry ? 'error' : ''}`}
-                  name="expiry"
+                  name="demoExpiry"
                   pattern="(0[1-9]|1[0-2])\/?([0-9]{2})"
                   required
                   aria-required="true"
-                  autoComplete="cc-exp"
+                  autoComplete="off"
                   aria-invalid={!!errors.expiry}
                   aria-describedby={errors.expiry ? "expiryError" : undefined}
                 />
                 {errors.expiry && <span id="expiryError" className="error-message">{errors.expiry}</span>}
               </div>
-              
+
               <div className="input-group">
                 <input
-                  type="password"
-                  placeholder="CVV"
+                  type="text"
+                  placeholder="Any 3-4 digits"
                   value={cvv}
                   onChange={(e) => setCvv(e.target.value)}
                   className={`input half ${errors.cvv ? 'error' : ''}`}
-                  name="cvv"
+                  name="demoCvv"
                   maxLength={4}
                   required
                   aria-required="true"
-                  autoComplete="cc-csc"
+                  autoComplete="off"
                   aria-invalid={!!errors.cvv}
                   aria-describedby={errors.cvv ? "cvvError" : undefined}
                 />
@@ -349,6 +352,32 @@ const PaymentPage = () => {
           text-align: center;
         }
 
+        /* Demo watermark banner */
+        .demo-watermark {
+          background: repeating-linear-gradient(45deg, #b45309, #b45309 10px, #92400e 10px, #92400e 20px);
+          color: #fff;
+          font-weight: 800;
+          letter-spacing: 0.05em;
+          text-align: center;
+          padding: 8px 10px;
+          border-radius: var(--border-radius) var(--border-radius) 0 0;
+          margin: -30px -40px 20px -40px;
+          font-size: 0.85rem;
+          text-transform: uppercase;
+        }
+
+        /* Demo disclaimer note */
+        .demo-note {
+          background: #fef3c7;
+          border: 1px solid #f59e0b;
+          color: #78350f;
+          border-radius: var(--border-radius);
+          padding: 12px 14px;
+          font-size: 0.9rem;
+          margin-bottom: 20px;
+          text-align: left;
+        }
+
         /* Title */
         .title {
           font-weight: 700;
@@ -359,8 +388,7 @@ const PaymentPage = () => {
 
         /* Product Info */
         .product-info {
-          margin-bottom: 30px;
-          font-size: 1.1rem;
+          margin-bottom: 30px;          font-size: 1.1rem;
           line-height: 1.5;
         }
         .product-info strong {

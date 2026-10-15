@@ -15,6 +15,7 @@ import {
 import { SearchContext } from "../pages/search";
 import { BRAND, CATEGORIES } from "../config/constants";
 import "./Header.css";
+import { logout } from "@netlify/identity";
 
 const dropdownMotion = {
   initial: { opacity: 0, y: -8 },
@@ -59,9 +60,14 @@ const Header = ({ filteredProducts = [], filteredCategories = [] }) => {
     if (searchTerm.trim()) navigate("/search-results");
   };
 
-  const handleLogout = () => {
-    localStorage.clear();
-    navigate("/login");
+  const handleLogout = async () => {
+    try {
+      await logout();
+      localStorage.removeItem("loggedInUser");
+      navigate("/login");
+    } catch {
+      window.alert("Unable to log out. Please try again.");
+    }
   };
 
   const userMenuItems = [
